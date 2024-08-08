@@ -1,10 +1,9 @@
-## Template for creating your own ChatGPT with Streamlit and OpenAI API
+## Local AI Chatbot with Llama3, Ollama & Streamlit
 
 This repository contains the code for a simple web application built with [Streamlit](https://streamlit.io/), which uses OpenAI's GPT-3 model for generating AI responses in a chat-like interface.
 
 ### Prerequisites
-1. Python 3.6 or above
-2. An OpenAI API Key
+1. Python 3.8 or above
 
 ### App Demo
 ![StreamlitChatbot](https://github.com/krisograbek/streamlit_chatbot_base/assets/48050596/e1c62c71-0b3d-4a3b-9855-e48fc73e402b)
@@ -13,12 +12,12 @@ This repository contains the code for a simple web application built with [Strea
 ### Steps to run the application
 **1. Clone the repository to your local machine:**
 ```shell
-git clone https://github.com/krisograbek/streamlit_chatbot_base.git
+git clone https://github.com/krisograbek/ollama-chatbot-st.git
 ```
 
 **2. Navigate to the project directory:**
 ```shell
-cd streamlit_chatbot_base
+cd ollama-chatbot-st
 ```
 
 3. Create a virtual environment and activate it:
@@ -45,19 +44,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-5. Create a .env file in the root directory of the project and add your OpenAI API key:
-```shell
-echo OPENAI_API_KEY=your-api-key > .env
-```
-OR
 
-```shell
-cp .env.example .env
-```
-
-Please replace your-api-key with your actual OpenAI API key.
-
-6. Run the Streamlit application:
+5. Run the Streamlit application:
 ```shell
 streamlit run chatbot.py
 ```
