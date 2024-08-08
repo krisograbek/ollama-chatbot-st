@@ -1,11 +1,5 @@
 import streamlit as st
-from openai import OpenAI
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
-client = OpenAI()
+import ollama
 
 st.title("My Own ChatGPT!🤖")
 
@@ -17,7 +11,7 @@ for message in st.session_state["messages"]:
         st.markdown(message["content"])
 
 if "model" not in st.session_state:
-    st.session_state.model = "gpt-4o-mini"
+    st.session_state.model = "llama3"
 
 if user_prompt := st.chat_input("Your prompt"):
     st.session_state.messages.append({"role": "user", "content": user_prompt})
@@ -27,13 +21,13 @@ if user_prompt := st.chat_input("Your prompt"):
     # generate responses
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
-        response = client.chat.completions.create(
+        response = ollama.chat(
             model=st.session_state.model,
             messages=[
                 {"role": m["role"], "content": m["content"]}
                 for m in st.session_state.messages
             ],
         )
-        message_placeholder.markdown(response.choices[0].message.content)
+        message_placeholder.markdown(response["message"]["content"])
 
     st.session_state.messages.append({"role": "assistant", "content": response})

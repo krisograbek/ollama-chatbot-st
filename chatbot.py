@@ -1,11 +1,6 @@
 import streamlit as st
-from openai import OpenAI
+import ollama
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-client = OpenAI()
 
 st.title("My Own ChatGPT!🤖")
 
