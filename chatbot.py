@@ -14,7 +14,7 @@ for message in st.session_state["messages"]:
 
 # initialize model
 if "model" not in st.session_state:
-    st.session_state.model = "gpt-4o-mini"
+    st.session_state.model = "llama3"
 
 # user input
 if user_prompt := st.chat_input("Your prompt"):
@@ -27,16 +27,15 @@ if user_prompt := st.chat_input("Your prompt"):
         message_placeholder = st.empty()
         full_response = ""
 
-        stream = client.chat.completions.create(
+        for chunk in ollama.chat(
             model=st.session_state.model,
             messages=[
                 {"role": m["role"], "content": m["content"]}
                 for m in st.session_state.messages
             ],
             stream=True,
-        )
-        for chunk in stream:
-            token = chunk.choices[0].delta.content
+        ):
+            token = chunk["message"]["content"]
             if token is not None:
                 full_response += token
                 message_placeholder.markdown(full_response + "▌")
