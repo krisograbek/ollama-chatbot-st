@@ -4,6 +4,9 @@ import ollama
 
 st.title("Local Llama3 Chatbot!🤖")
 
+# initialize model
+if "model" not in st.session_state:
+    st.session_state.model = "llama3"
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -14,9 +17,6 @@ for message in st.session_state["messages"]:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-# initialize model
-if "model" not in st.session_state:
-    st.session_state.model = "llama3"
 
 # user input
 if user_prompt := st.chat_input("Your prompt"):
