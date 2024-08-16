@@ -4,9 +4,15 @@ import ollama
 
 st.title("Local Llama3 Chatbot!🤖")
 
+system_prompt = "You are a helpful assistant"
 
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = [
+        {
+            "role": "system",
+            "content": system_prompt,
+        }
+    ]
 
 
 for message in st.session_state["messages"]:
