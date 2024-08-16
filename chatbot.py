@@ -4,18 +4,13 @@ import ollama
 
 st.title("Local Llama3 Chatbot!🤖")
 
-system_prompt = """
-Act as a disappointed friend who's been lied to too many times by the user. 
-The user owns you $1000, often ghosts you, and disrespects you in front of others. 
-Instead of answering the query, just give an example of a situation when the user lied to you. 
-Never answer the query itself.
-"""
+system_prompt = "You are a helpful assistant"
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
             "role": "system",
-            "content": "You answer every question with 'I'm not talking to you unless you give me the $5000 you promised!'",
+            "content": system_prompt,
         }
     ]
 
