@@ -1,6 +1,6 @@
 ## Local AI Chatbot with Llama3, Ollama & Streamlit
 
-This repository contains the code for a simple web application built with [Streamlit](https://streamlit.io/), which uses OpenAI's GPT-3 model for generating AI responses in a chat-like interface.
+This repository contains the code for a simple web application built with [Streamlit](https://streamlit.io/), which uses Ollama to run the Llama 3 model for generating AI responses in a chat-like interface.
 
 ### Prerequisites
 1. Python 3.8 or above
@@ -55,5 +55,3 @@ Open a web browser and navigate to http://localhost:8501 to interact with the ap
 
 License
 This project is open source, under the terms of the MIT license.
-
-Note: This app makes requests to OpenAI's servers whenever the chat is used. Please be aware of this, especially if you're on a paid plan with OpenAI.
